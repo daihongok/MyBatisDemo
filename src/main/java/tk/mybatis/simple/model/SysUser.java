@@ -31,7 +31,7 @@ public class SysUser {
         return userPassword;
     }
 
-    public void setUserPassord(String userPassword) {
+    public void setUserPassword(String userPassword) {
         this.userPassword = userPassword;
     }
 
