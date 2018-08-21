@@ -4,6 +4,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.junit.Assert;
 import org.junit.Test;
 import tk.mybatis.simple.model.Country;
+import tk.mybatis.simple.model.SysRole;
 import tk.mybatis.simple.model.SysUser;
 
 import java.util.List;
@@ -36,4 +37,16 @@ public class UserMapperTest extends BaseMapperTest{
         }
     }
 
+    @Test
+    public void testSelectRolesByUserId(){
+        SqlSession sqlSession = getSqlSession();
+        try{
+            UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
+            List<SysRole> roleList = userMapper.selectRolesByUserId(1001L);
+            Assert.assertNotNull(roleList);
+            Assert.assertTrue(roleList.size()>0);
+        }finally {
+            sqlSession.close();
+        }
+    }
 }
