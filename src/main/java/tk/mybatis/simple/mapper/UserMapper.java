@@ -24,7 +24,36 @@ public interface UserMapper {
 
 	List<SysRole> selectRolesByUserId(Long userId);
 
+	/**
+	 * 新增用户
+	 * @param sysUser
+	 * @return
+	 */
 	int insert(SysUser sysUser);
 
+	/**
+	 * 新增用户-自动生成主键
+	 * @param sysUser
+	 * @return
+	 */
 	int insert2(SysUser sysUser);
+
+	/**
+	 * 新增用户-使用selectKey方式
+	 * @param sysUser
+	 * @return
+	 */
+	int insert3(SysUser sysUser);
+
+	int updateById(SysUser sysUser);
+
+	/**
+	 * 通过主键删除
+	 *
+	 * @param id
+	 * @return
+	 */
+	int deleteById(Long id);
+
+	int deleteById(SysUser sysUser);
 }
